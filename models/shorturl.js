@@ -1,21 +1,13 @@
 const mongoose = require('mongoose')
 
-const makeid = (length) => {
-  let result = ''
-  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
-  const charactersLength = characters.length
-  for ( var i = 0; i < length; i++ ) {
-    result += characters.charAt(Math.floor(Math.random() * charactersLength))
-  }
-  return result;
-}
-
 const shorturlSchema = new mongoose.Schema({
   _id: {
     type: String,
-    default: makeid(6)
+    required: true,
+    minLength: 5,
+    maxLength: 10
   },
-  original_url: {
+  url: {
     type: String,
     required: true
   }
@@ -23,6 +15,7 @@ const shorturlSchema = new mongoose.Schema({
 
 shorturlSchema.set('toJSON', {
   transform: (document, returnedObject) => {
+    returnedObject.original_url = returnedObject._url
     returnedObject.short_url = returnedObject._id
     delete returnedObject._id
     delete returnedObject.__v

@@ -2,6 +2,21 @@ POST http://localhost:3003/api/shorturl
 Content-Type: application/json
 
 {
-  "original_url": "https://github.com/Ahm3rIjaz/",
-  "_id": "myGithub"
+  "url": "https://url-shortener-microservice.ahmerijaz.repl.co/?v=1626013409766"
+}
+
+###
+POST http://localhost:3003/api/shorturl
+Content-Type: application/json
+
+{
+  "url": "https://url-shortener-microservice.ahmerijaz.repl.co/?v=1626016769371"
+}
+
+###
+POST http://localhost:3003/api/shorturl
+Content-Type: application/json
+
+{
+  "url": "ftp:/john-doe.org"
 }
