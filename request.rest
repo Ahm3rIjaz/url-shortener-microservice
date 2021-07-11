@@ -1,0 +1,7 @@
+POST http://localhost:3003/api/shorturl
+Content-Type: application/json
+
+{
+  "original_url": "https://github.com/Ahm3rIjaz/",
+  "_id": "myGithub"
+}
